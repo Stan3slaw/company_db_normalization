@@ -1,4 +1,7 @@
-/* Creating new contact_person table */
+/* Adding PK to customers table */
+ALTER TABLE customers ADD COLUMN id SERIAL NOT NULL PRIMARY KEY;
+
+/* Creating new contact_person table, to avoid partial dependencies */
 CREATE TABLE IF NOT EXISTS "contact_persons" (
   "id" SERIAL NOT NULL PRIMARY KEY,
   "full_name" VARCHAR(255) NOT NULL,

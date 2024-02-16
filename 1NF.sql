@@ -1,12 +1,11 @@
-/* Adding PK to customers table */
-ALTER TABLE customers ADD COLUMN id SERIAL NOT NULL PRIMARY KEY;
-
-/* Separating contact_person_and_role columns into individual columns */
+/* Separating contact_person_and_role columns into individual columns, since each 
+record should contain single value. */
 ALTER TABLE customers RENAME COLUMN contact_person_and_role TO contact_person;
 ALTER TABLE customers ADD COLUMN contact_person_role VARCHAR(20) NOT NULL;
 
 
-/* Creating new customers_feedback table */
+/* Creating new customers_feedback table, to avoid data duplication and keep table consistent.
+Also this step helps to split unrelated data.  */
 CREATE TABLE IF NOT EXISTS "customers_feedback" (
   "id" SERIAL NOT NULL PRIMARY KEY,
   "feedback" TEXT NOT NULL,

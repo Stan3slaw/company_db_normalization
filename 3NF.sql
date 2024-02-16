@@ -1,4 +1,4 @@
-/* Creating new zip_codes table */
+/* Creating new zip_codes table, to avoid transitional dependencies */
 CREATE TABLE IF NOT EXISTS "zip_codes" (
   "zip_id" VARCHAR(5) NOT NULL PRIMARY KEY,
   "city" VARCHAR(255) NOT NULL
